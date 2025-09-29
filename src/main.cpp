@@ -2,7 +2,6 @@
 #include <freertos/FreeRTOS.h>
 #include <freertos/task.h>
 #include <freertos/queue.h>
-#include <freertos/semphr.h>
 
 // pins
 #define DHT_PIN 4
@@ -36,8 +35,6 @@ struct SerialMessage {
 // globals
 // FreeRTOS handles
 QueueHandle_t dhtToSerialQueue;
-QueueHandle_t dhtRawDataQueue;
-QueueHandle_t buttonEventQueue;
 
 // DHT22 ISR variables
 volatile bool dataReady = false;
@@ -298,5 +295,5 @@ void setup() {
 
 // loop function
 void loop() {
-  // FreeRTOS handles it so no need to insert anything ghere
+  // FreeRTOS handles everything - no code needed here
 }
